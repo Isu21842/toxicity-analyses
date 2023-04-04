@@ -1,0 +1,1829 @@
+Title,Score,URL,Text,Toxicity
+[AF] Minimum Viable EC2 Instance Type?,4,https://www.reddit.com/r/flask/comments/11wu7xi/af_minimum_viable_ec2_instance_type/,"Hey folks.
+
+Just deployed my first couple of Flask apps on an EC2 instance. These are incredibly low-traffic sites. For now, at least.
+
+Yet, I kept having to either reboot or shut down and restart the instance fairly regularly. Few times a week. Even a few times a day.
+
+The instance type was t2.micro. These aren't revenue-generating apps, so was trying to keep things reasonably priced.
+
+Finally saw that CPU usage was getting pegged at 99%. Did some `top` magic and saw process `kswapd0` just going nuts. 
+
+Up until this point, i had been going nuts trying to refactor settings and tighten stuff up. But after seeing that, I thought maybe it was time to bump the instance up to t2.small. Did that last night.
+
+Since then, there have been no issues. But again, these are not heavily-used sites. If there is bad code... perhaps the bad code just hasn't been triggered yet.
+
+But as a sanity check, just wanted to see. Would a t2.micro instance not be enough to handle a Flask app that's getting _very_ light use? It's got SQLAlchemy and MySQL is running right on the instance, as I didn't want to have to spring for RDS (yet).
+
+If that's the case, then cool. Problem solved. Hopefully the t2.small can handle it for the foreseeable future.
+
+So... tl;dr... does anyone _successfully_ run a Flask app on a t2.micro EC2 instance? Or is that just crazy talk?
+
+Thanks!
+
+EDIT: CPU utilization before and after the instance upgrade: https://i.imgur.com/VP5SbUw.png",0.09308127
+Trying to pass a date but instead it gets calculated,2,https://www.reddit.com/r/flask/comments/11wq8p3/trying_to_pass_a_date_but_instead_it_gets/,"I created this navbar which has the 5 buttons in the following format:  
+NameOfDay dd-mm-YYYY (see screenshot below)  
+
+
+[navbar](https://preview.redd.it/la8oc86goxoa1.png?width=874&format=png&auto=webp&v=enabled&s=d54a22caed13bdf578ab618da72dc0f50bd5b1b1)
+
+I want the pass the date of the button the user clicks on using the following codeblock:  
+
+
+      <div class=""collapse navbar-collapse"" id=""navbarNav"">
+        <ul class=""navbar-nav"">
+             {% for dag, dato in ukedager.items() %}
+             <li class=""nav-item item"">
+            <a class=""nav-link"" href=""#"" onclick=""myFunction({{ dato }})""> {{ dag }} {{ dato }} </a>
+                 <script>
+                     console.log({{ dato }})
+                 </script>
+
+Im having the console.log({{ dato }}) for debug purposes and i can see that the output is being calculated instead of returnig the date.   
+So for todays date, instead of passing ""21-03-2023"" it passes ""-2005"".   
+Any tips on how to solve this?",0.018849092
+What is the correct method to re-use a navbar across multiple pages?,4,https://www.reddit.com/r/flask/comments/11wjrtr/what_is_the_correct_method_to_reuse_a_navbar/,"I have a navbar (HTML,CSS and Javascript) works for a single page website but how do I get it to work with multiple pages?
+
+Options:
+
+1. Copy and paste for each page
+2. Use python via flask\_navigation 
+3. Use JavaScript to load the navbar (onload Event)
+4. Use Jinga2 template (Inheritance)",0.008921904
+How to load a file to a server address?,1,https://www.reddit.com/r/flask/comments/11wjcd4/how_to_load_a_file_to_a_server_address/,"So i have one flask app on 127.0.0.1:5000 and one flask app on 127.0.0.1:8000. I have an excel file to be transfered from the 5000 to 8000.
+
+How do i do that? 
+
+All i have at this moment is an upload button that uploads a specific file that i chose but i want to transfer the file to 8000 so i can work with it there.",0.015707577
+Get values from a dropdown button,3,https://www.reddit.com/r/flask/comments/11wivtp/get_values_from_a_dropdown_button/,"Hello there.
+
+This may be a silly question, but it's kinda driving me crazy.
+
+I'm trying to get a value from a dropdown button selected in my page, but the results are always none no matter which i try. This is a simple example code i'm running:
+
+    <form method=""POST"">
+        <div class=""dropdown"">
+        <button class=""btn btn-primary dropdown-toggle"" aria-expanded=""false"" data-bs-toggle=""dropdown"" name=""meteodrop"" id=""meteodata_dash"" type=""button"">Select</button>
+        <div class=""dropdown-menu"">
+        <a class=""dropdown-item"" href=""#"">First Item</a>
+        <a class=""dropdown-item"" href=""#"">Second Item</a>
+        <a class=""dropdown-item"" href=""#"">Third Item</a></div>
+        </div>  
+    <button class=""btn btn-success btn-lg"" type=""submit"" style=""font-weight: bold;margin-left: 5px;"">Generate</button></div> 
+    </form>
+
+And this is how i'm trying to get the value from python:
+
+    @app.route('/dashboard', methods=['POST', 'GET']) 
+    def dashboard(): 
+        if request.method == ""POST"":
+            meteodata = request.form.get(""meteodrop"")
+            print(meteodata) ## this is always none
+    
+        return render_template('dashboard.html')
+
+Basically it returns always none no matter what i do.
+
+**~~Also, what if i'd like to modify first, second and third item with a list of my own? How could i achieve that? For example from a list of values \[banana, kiwi, apple\].~~** **SOLVED**
+
+Thank you.",0.16158698
+building an ai assistant that can take a set of user tasks and perform the action!,4,https://v.redd.it/btw37wmsosoa1,,
+Feel free to skip the loading bit. Very proud of this project.,33,https://v.redd.it/q149l07m9soa1,,
+Looking for obfuscate or encrypt a flask project?,1,https://www.reddit.com/r/flask/comments/11vtd27/looking_for_obfuscate_or_encrypt_a_flask_project/," Hi ALL,
+
+I have a project created with  flask that is meant to be on the servers of clients so I'm worried about anybody seeing the code. I don't trust just the contracts, so I want to ""be sure"".
+
+I want a way to encrypt or obfuscate my code. I've been looking for a solution but haven't found one.
+
+Any ideas? Thanks!",0.02072494
+Flask chart and rss feed,3,https://www.reddit.com/r/flask/comments/11vinoe/flask_chart_and_rss_feed/,"Hello all! I am new to Flask and created one app with it. I would like to get rss feed on main page. I have tried couple of rss feeders to integrate my website but one is premium which i dont want to pay the other one is just a link and i dont know how i can style it in the html. Can you tell me from where you fetch your rss and how do you integrate it to your htmls?
+
+And the other thing is  how do you guys create charts on Flask app?
+
+Thank you in advance",0.02343543
+Try my app Time | Light Tactical Locator (for any device),1,/r/webdev/comments/11v83cn/try_my_app_time_light_tactical_locator_for_any/,,
+"To try when your arms are too weary 😮‍💨 To reach the unreachable ⭐️ This is my quest, to follow that 💫 Shout out u/IrrerPolterer",0,https://i.redd.it/hbq60agq9noa1.jpg,,
+Issue with nginx + gunicorn serving up my static files,5,https://www.reddit.com/r/flask/comments/11v7f5p/issue_with_nginx_gunicorn_serving_up_my_static/,"Hi all!  Apologies in advance as I am a bit of a novice with Flask..  I made a portfolio website for myself and I am trying to get it up via Linode but having an issue with my html not connecting to my static files.
+
+I have copied my Project up onto my linode server and set up nginx and gunicorn using Corey Schafer's Flask tutorial on Youtube - [https://www.youtube.com/watch?v=goToXTC96Co&t=3157s](https://www.youtube.com/watch?v=goToXTC96Co&t=3157s).
+
+I created a file in /etc/nginx/eites-enabled/ that looks like this:
+
+  
+
+https://preview.redd.it/s0c6yetylloa1.png?width=421&format=png&auto=webp&v=enabled&s=c6131c053948b98f90fa529a1ffbb8139a2b3c6c
+
+&#x200B;
+
+when I run 'python3 [app.py](https://app.py)' within my Portfolio folder on my linode server the website comes up on [http://127.0.0.1:5000/](http://127.0.0.1:5000/) without any issue.  When I run it via 'gunicorn -w 3 app:app' however none of the css or js comes through so I think I am doing something wrong in the way of getting gunicorn to correctly reference my static files
+
+In my HTML I am using 'url\_for' to reference my static files:
+
+&#x200B;
+
+https://preview.redd.it/y426x0vsgloa1.png?width=498&format=png&auto=webp&v=enabled&s=db1d4665c9af8c54ba9f65b1ed7fca171d65b091
+
+I have tried a few different things but cannot figure out what the issue is.  Also, with nothing running, if I try and go to [http://143.42.114.59/static/](http://143.42.114.59/static/) just to see if I can see the static files i get a 403 Forbidden error
+
+&#x200B;
+
+I have spent a couple days trying to troubleshoot but cannot figure out where I am going wrong.  If anyone has any thoughts or advice that would be much appreciated!",0.01834645
+Deploying a Sqlite/SQLAlchemy app,3,https://www.reddit.com/r/flask/comments/11v3t9a/deploying_a_sqlitesqlalchemy_app/,"Hi! I've built my first full flask application (a simple blog site with CRUD for posts, likes, comments, and users) and I've """"deployed"""" it with azure with a local database (deployed with the files) which I realize now was a little optimistic for me. The app works perfectly when run on a local server, but I know next to nothing about deployment so I'm wondering how I can deploy the app correctly with the database. Free options are preferable since I'm a broke student trying to learn web development. Thanks!",0.023317585
+flask vs nodejs ?,16,https://www.reddit.com/r/flask/comments/11uua07/flask_vs_nodejs/,Which framework is better for small projects ?,0.010681152
+What even is this,0,https://i.redd.it/c8h0not8mdoa1.png,,
+How to redirect players to their own private room/url,2,https://www.reddit.com/r/flask/comments/11u4g7i/how_to_redirect_players_to_their_own_private/,"Hi,
+
+I'm trying to build a web game. I have a dictionary of players and I want to redirect say, 2 of those players to their own private room (with a unique url like www.my\_website.com/unique\_id) to play a game. Does anyone know how I can do that, or a recommended learning resource?
+
+Thanks",0.019728716
+I just cannot get this to work. Been banging my head against it for a couple days now.,9,https://i.redd.it/wdmhc0be1doa1.png,,
+"How to manage user data in a flask app? For example, how to save search history, downloaded file etc?",8,https://www.reddit.com/r/flask/comments/11u1tog/how_to_manage_user_data_in_a_flask_app_for/,,
+Flask. + Google Cloud Run streaming not working,3,https://www.reddit.com/r/flask/comments/11u0o2o/flask_google_cloud_run_streaming_not_working/,"So streaming doesn't work even with `X-Accel-Buffering': 'no'`
+
+    def stream():
+    completion = <call_to_streaming_api> 
+    for line in completion: yield 'data: %s\n\n' % <server response> 
+    return flask.Response(stream(), mimetype='text/event-stream', headers={'X-Accel-Buffering': 'no'})
+
+Works locally with gunicorn/flask dev server. What could the problem be?",0.009738698
+Clearing Sessions,2,https://www.reddit.com/r/flask/comments/11tzsoy/clearing_sessions/,"I can't tell if this is something about browser infrastructure I'm not understanding or if it has to do with Flask, but here's my goal:
+
+I have a temporary web app that runs a bunch of routes and functions with a vendor's API endpoints; basically, a GUI wrapper for stuff that's not possible via the app itself. 
+
+When someone's done doing what they need to do, I want the entire session to clear and be a blank slate for the next time you start a session. I have a function in the app that does this well. But most users will likely just close the tab or window and move on. 
+
+I can't seem to figure out how to get anything to trigger upon closing tab/window. I tried \`flask-socketio\` with its default \`disconnect\` functions, but I can't seem to get that to trigger. I've set it up according to the documentation but nothing prints in the console. 
+
+I'm now using a script with \`pageVisibility\` but that misses the mark because if someone simply navigates away from the window/app, it will trigger their visibility to \`hidden\`. 
+
+I thought I was on the right track with websockets, but perhaps I'm missing something in my understanding. Has anyone else implemented a function for when a learner disconnects/closes their session?",0.03015274
+How two link two flask apps together through the URL address?,3,https://www.reddit.com/r/flask/comments/11tts2g/how_two_link_two_flask_apps_together_through_the/,"I need to create two flask apps.
+
+One is client.py that will run on 127.0.0.1:5000 and will have a user interface with buttons and options to choose from.
+
+And the other is a server.py with 127.0.0.1:8000.
+This will contain call to our main function within our python app that will calculate based on the excel that will be sent through the server by the user through client.py. It will also take in consideration what options they've chosen in that user interface. 
+
+My only problem is how do i get the user interface to make a call to the server.py URL and call a function from within and then get the result?
+
+If i would know that everything else would clear out.
+
+At this moment the server.py calls a function in a test  file that prints something to the user.
+
+If i could make it happen by calling it through the URL from the UI that would be amazing i could get on with finishing the project.  I am working on flask 1.1.1 because IT refuses to help us with updating (long story not getting into it). So all tutorials i found are a unhelpful due to the difference in their version and mine.",0.021667719
+Mejor estructura para proyecto en Flask python,1,/r/programacion/comments/11pniz1/mejor_estructura_para_proyecto_en_flask_python/,,
+Marshmallow validation,1,https://www.reddit.com/r/flask/comments/11tq53w/marshmallow_validation/,"Hello all,  
+
+
+I am trying to validate my sign up route json content with the following code:  
+
+```
+@local_oauth.route(""/api/oauth/signup"", methods=[""POST""])
+def handle_sign_up():
+    if request.method == ""POST"":
+        content = request.get_json(silent=True)
+        if not content:
+            return {""payload"": ""No input data provided""}, 400
+
+        schema = SignupSchema()
+        errors = schema.validate(content)
+        if errors:
+            return errors, 400
+```
+
+The marshmallow schema is as follows:
+```
+class SignupSchema(Schema):
+    class Meta:
+        unknown = EXCLUDE
+
+    email: fields.Str(
+        required=True,
+        validate=[
+            validate.Length(
+                min=4, max=80, error=""Email must have between 4 and 80 characters""
+            ),
+            validate.Email(error=""It must be a valid email""),
+        ],
+    )
+    password: fields.Str(
+        required=True,
+        validate=[
+            validate.Length(
+                min=6, max=80, error=""Password must have between 4 and 80 characters""
+            )
+        ],
+    )
+    confirmPassword: fields.Str(
+        required=True,
+        validate=[
+            validate.Length(
+                min=6,
+                max=80,
+                error=""Repeated password must have between 4 and 80 characters"",
+            )
+        ],
+    )
+
+```
+
+However, if I send a post request with the fields email and password, without confirmPassword, it does not trigger any error saying that confirmPassword is required.
+
+What am I missing?
+
+Thank you in advance and regards",0.01608456
+set FLASK_APP=hello.py + flask run don't work. I installed flask on Pycharm tho,3,https://www.reddit.com/r/flask/comments/11tmtvd/set_flask_apphellopy_flask_run_dont_work_i/,"Hello people, i have installed flask(pip install flask) but i can't run it, i wonder if i have to change the path of the terminal or is something about installing it somewhere too.Someone knows about this error?, Thanks for advance
+
+Explanatory image:
+
+[https://gyazo.com/34b48e289b995cbba76b1d5528059487](https://gyazo.com/34b48e289b995cbba76b1d5528059487)
+
+Edit:
+
+This is the current state of the project:[https://gyazo.com/1b4b60d097411d2efbd53257c8cd3b0e](https://gyazo.com/1b4b60d097411d2efbd53257c8cd3b0e)
+
+Edit 2: Finally i solved this odissey.  
+
+
+After erase 1 L from hello and reinstalled Flask on the Python console it finally works :)  
+[https://gyazo.com/32dff98a75fdfb52629d20f305abbe1c](https://gyazo.com/32dff98a75fdfb52629d20f305abbe1c)  
+Thanks to everyone",0.020842785
+Used py html and css to run local host in venv in Virtual Studio Code,34,https://i.redd.it/o6invtb1r8oa1.jpg,,
+Create generalized table builder,2,https://www.reddit.com/r/flask/comments/11taq2m/create_generalized_table_builder/,"I am trying to implement this [example](https://stackoverflow.com/a/57840651/1761521); my code looks like 
+
+    {% macro table_builder(headers, items) %}
+      <table class=""w-full text-sm text-left text-gray-500 dark:text-gray-400"">
+        <thead class=""text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"">
+          <tr>
+            {{ caller(mode='header') }}
+          </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+        <tr class=""bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"">
+          {{ caller(mode='row', item) }}
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    {% endmacro %}
+
+and then I call it
+
+    {% from  ""_table.html"" import table_builder %}
+    
+    {% set test_data = [
+      {""name"": ""Name 1"", ""price"": ""123""},
+      {""name"": ""Name 2"", ""price"": ""456""}
+    ] 
+    %}
+    
+    {% call(mode, items) table_builder(headers=headers, items=item) %}
+      {% if mode == 'header' %}
+        <th>Name</th>
+        <th>Price</th>
+        <th>Col2</th>
+      {% else %}
+        {% for item in test_data %}
+          <td>{{ item[""name""] }}<td>
+          <td>{{ item[""price""] }}<td>
+        {% endfor %}
+      {% endif %}
+    {% endcall %}
+
+However, I am getting the following error `jinja2.exceptions.TemplateSyntaxError: invalid syntax for function call expression`  on `{{ caller(mode='row', item) }}`",0.036634352
+Flask + Redis?,2,https://www.reddit.com/r/flask/comments/11t9qic/flask_redis/,I'm wondering what the best way to connect Flask and Redis is. Is there a preferred Flask extension? Some of the ones I've seen are older and don't look maintained,0.017718147
+Trouble trying to add celery to existing App using blueprints. Worker won't start,1,https://www.reddit.com/r/flask/comments/11t8359/trouble_trying_to_add_celery_to_existing_app/,"Here is the relevant parts of the project structure:`archives_app`
+```
+archives_app
+│
+├── .gitignore
+│
+├── archives_application
+│   ├── app_config.py
+│   ├── archiver
+│   ├── main
+│   │   ├── desktop.ini
+│   │   ├── forms.py
+│   │   ├── routes.py
+│   │   ├── tasks.py
+│   │   ├── __init__.py
+│   ├── models.py
+│   ├── static
+│   │   ├── default
+│   │   │   │
+│   │   │   ├── no_preview_image_01.jpg
+│   │   │   └── no_preview_image_02.jpg
+│   │   │
+│   │   ├── main.css
+│   │   └── temp_files
+│   ├── templates
+│   │   ├── account.html
+│   │   ├── home.html
+│   │   ├── inbox_item.html
+│   │   ├── layout.html
+│   │   ├── login.html
+│   │   ├── register.html
+│   │   ├── timekeeper.html
+│   │   └── upload_file.html
+│   ├── timekeeper
+│   ├── users
+│   ├── utilities.py
+│   ├── __init__.py
+│
+├── deploy_app_config.json
+├── dev_files
+│
+├── google_client_secret.json
+├── make_celery.py
+├── Pipfile
+├── Pipfile.lock
+├── requirements.txt
+├── run.py
+├── test_config_postgres.json
+```
+...in app_config.py I have my celery app builders functions:
+```
+def start_celery_worker(celery_app: Celery, flask_app: flask.Flask):
+
+    # check if there are any existing workers for this app
+    worker_names = celery_app.control.inspect().registered()
+    if worker_names and any([bool(w) for w in worker_names if w.startswith(flask_app.name)]):
+        return
+
+    # start the Celery worker
+    celery_app.control.purge()
+    #worker_process = celery_app.worker_main(['worker', '--loglevel=info'])
+    worker_process = celery_app.Worker()
+    worker_process.start()
+
+    # test for existence of worker three times, before raising error
+    tests = 3
+    while tests:
+        try:
+            current_app.control.ping(timeout=0.1)
+            break
+        except WorkerLostError:
+            tests -= 1
+            if tests == 0:
+                raise WorkerLostError
+            else:
+                time.sleep(0.1)
+    print('Celery worker started') #TODO remove
+
+
+class FlaskTask(Task):
+    def __call__(self, *args: object, **kwargs: object) -> object:
+        with flask.current_app.app_context():
+            return self.run(*args, **kwargs)
+
+def celery_init_app(app: flask.Flask) -> Celery:
+    """"""
+    Initializes and configures a Celery app for use within a Flask app.
+
+    This function sets up a Celery app that can be used to execute background tasks within a Flask app. It defines a
+    custom task class called `FlaskTask` that ensures that tasks executed by Celery have access to the Flask app's
+    context. The Celery app is then configured using the `config_from_object` method, which loads the Celery app's
+    configuration from the `CELERY` key in the Flask app's configuration. Finally, the Celery app is added to the Flask
+    app's extensions with the key `celery`.
+    """"""
+
+    #app = app or create_app()
+    celery_app = Celery(app.name, task_cls=FlaskTask)
+    celery_app.config_from_object(app.config, namespace=""CELERY"")
+    celery_app.set_default()
+    app.extensions[""celery""] = celery_app
+    return celery_app
+```
+...then in make_celery.py for making workers (not sure if this is necessary if I create workers within python):
+```
+from archives_application import create_app
+
+flask_app = create_app()
+celery_app = flask_app.extensions[""celery""]
+```
+And finally that create_app function:
+```
+def create_app(config_class=app_config.json_to_config_factory(google_creds_path=google_creds_json,
+                                                   config_json_path=config_json)):
+
+    # logging format
+    # example usage: https://github.com/tenable/flask-logging-demo
+    defaultFormatter = logging.Formatter('[%(asctime)s] %(levelname)s in %(module)s: %(message)s')
+
+    # start app
+    app = flask.Flask(__name__)
+
+    # if the app is not being debugged, then we need to use the gunicorn logger handlers when in production.
+    # also need to do something so that it can accept proxy calls
+    if not app.debug:
+        app.logger.handlers = logging.getLogger('gunicorn.error').handlers
+
+        # https://flask-dance.readthedocs.io/en/v0.13.0/proxies.html
+        # https://werkzeug.palletsprojects.com/en/1.0.x/middleware/proxy_fix/
+        app.wsgi_app = ProxyFix(app.wsgi_app)
+
+    # set universal format for all logging handlers.
+    for handler in app.logger.handlers:
+        handler.setFormatter(defaultFormatter)
+
+    # config app from config class
+    app.config.from_object(config_class)
+
+    #create Celery
+    celery = app_config.celery_init_app(app)
+    app_config.start_celery_worker(celery_app=celery, flask_app=app)
+
+    db.init_app(app)
+    bcrypt.init_app(app)
+    login_manager.init_app(app)
+
+    # Set a version number
+    app.config['VERSION'] = '1.2.0'
+    app.config['google_auth_client'] = WebApplicationClient(config_class.GOOGLE_CLIENT_ID)
+
+    # add blueprints
+    from archives_application.users.routes import users
+    from archives_application.archiver.routes import archiver
+    from archives_application.main.routes import main
+    from archives_application.timekeeper.routes import timekeeper
+    app.register_blueprint(users)
+    app.register_blueprint(archiver)
+    app.register_blueprint(main)
+    app.register_blueprint(timekeeper)
+
+    celery.autodiscover_tasks(['archives_application.main.tasks'])
+
+    # This sets an environmental variable to allow oauth authentication flow to use http requests (vs https)
+    if hasattr(config_class, 'OAUTHLIB_INSECURE_TRANSPORT'):
+        os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+
+    # Useful for creating the database tables during development
+    #with app.app_context():
+    #    db.create_all()
+
+    return app
+```
+Current issues is that it won't start the worker start_celery_worker(), just hangs. No Error. So I am wondering how I might resolve that, and more broadly, does this seem like a good setup for celery?",0.012754552
+Problem with database disconnection,2,https://www.reddit.com/r/flask/comments/11t3603/problem_with_database_disconnection/,"I host my server with gunicorn and nginx. I get internal server error when i try to access server after a long break, but when i reload page, all works fine. I suppose this is a problem with connection with database, but i dont know what to do.",0.018974753
+before_first_request deprecated,5,https://www.reddit.com/r/flask/comments/11sx1sx/before_first_request_deprecated/,What are you using as a replacement now that \`before\_first\_request\` is deprecated? I used it to reconnect to the database when new uWSGI workers would be spawned (as they should not share the same database connection). But now I'm not sure how to accomplish this. Any advice would be appreciated.,0.022374803
+Error in Python Anywhere,2,https://www.reddit.com/r/flask/comments/11ssm02/error_in_python_anywhere/,"I am trying to deploy my flask app using python anywhere however it is giving an error of “ModuleNotFoundError: No module named ‘main’” the wsgi config file is as follows: 
+
+Import sys
+
+Path =‘/home/user/Portfo 
+If path not in sys.path:
+          Sys.path.append(path)
+
+from main import app as application 
+
+
+Can anyone help me with this, I am new to flask and python anywhere so please let me know any extra information I can provide",0.012566062
+ImportError: cannot import name 'Bootstrap5' from 'flask_bootstrap',1,https://www.reddit.com/r/flask/comments/11s85zv/importerror_cannot_import_name_bootstrap5_from/,"I did pip uninstall flask-bootstrap and bootstrap-flask and reinstalled it with pip install bootstrap-flask. 
+
+Then, I did 
+
+from flask\_bootstrap import Bootstrap5
+
+app = flask(\_\_name\_\_)
+
+bootstrap = Bootstrap5(app)
+
+I also did pip list and bootstrap-flask was listed there. In LSP (using LazyVim), I'm not getting an error for Boostrap5; it shows up as an actual module, but it occurs when I run the program. Not sure how to fix this issue.",0.014702292
+How to track which webpages a user has been.,1,https://www.reddit.com/r/flask/comments/11s70kf/how_to_track_which_webpages_a_user_has_been/,Hey so I’m new to flask and was wondering if there were any ways see if a webpage has been loaded.,0.02543884
+Is Flask the tool I want for a basic backend server?,18,https://www.reddit.com/r/flask/comments/11s1qys/is_flask_the_tool_i_want_for_a_basic_backend/,"I'm building a very simple React frontend and want to build my backend server in Python.
+
+After reading what Flask is in 4 different places I'm still a bit confused. It's generally described as ""a web application framework written in Python.""
+
+Is a web application framework designed to return the content that appears on a web page, whereas that would normally live in React (or whatever other FE framework)?
+
+If I only want to spin up a reliable web server with some basic endpoints to be hit by my React web application, is Flask the right tool for me? Or should I go with something else?",0.030034892
+How to 'pip install flask' for a specific user?,1,https://www.reddit.com/r/flask/comments/11rzf4l/how_to_pip_install_flask_for_a_specific_user/,"I tried to install flask using the pip install flask command (EDIT: while in a virtual environment). Sadly it *seems* to attempt a system-wide install and I don't have permissions to do that on this particular computer. I think there is a user option (pip install flask --user) but I don't know if it expects a path or something else for user.
+
+EDIT: I still have not solved the issue for why it would not work from the virtual environment, however I was able to install flask outside of the virtual environment.
+
+If anyone knows why it wouldn't work inside the virtual environment, please let me know.",0.026970858
+How to 'pip install flask' for a specific user?,0,https://www.reddit.com/r/flask/comments/11rzegv/how_to_pip_install_flask_for_a_specific_user/,"I tried to install flask using the pip install flask command. Sadly it attempts a system wide install and I don't have permissions to do that on this particular computer. I think there is a user option (pip install flask --User) but I don't know what it expects or how to format that. 
+
+I tried `pip install flask /path/to/user` but that did not work. Did I perhaps have a typo or should I have formatted that another way?",0.01847211
+Why does code only generate 1 carousel item from my api in python flask?,1,https://www.reddit.com/r/flask/comments/11rrp1g/why_does_code_only_generate_1_carousel_item_from/,"Currently trying to create a slider that use images from my api, my api at the moment contains 2 images (but there may be more coming later). [https://pastebin.com/AtGVf0Uv](https://pastebin.com/AtGVf0Uv) this is how my api looks atm when you call on localhost:5333/slider. [https://pastebin.com/6c9hjuqM](https://pastebin.com/6c9hjuqM) this is how my slider part looks at the moment, using bootstrap to help me. [https://pastebin.com/2ecNXvxV](https://pastebin.com/2ecNXvxV) this is my [app.py](https://app.py/) which is my main file. Ive tried using print(fetchdata) in the [app.py](https://app.py/) and it comes out fine in terms of whats meant to be there from the api. Ive added 
+
+    <p>Loop count: {{loop.index}}</p>
+
+which atm prints only 1. Ive looked online and from what i can tell from online codes and tutorial, their code looks the same as mine except the api url is different of course and im using them in carousel item.
+
+Thank you in advance for the help",0.028974265
+Serving Flask app,5,https://www.reddit.com/r/flask/comments/11rp02v/serving_flask_app/,"Hello, I hope that this topic is still considered a ""Flask"" subject.  
+I tried googling and chatGPT, but had to return to good ol' Reddit. I need Your help.  
+
+
+I was serving my Flask app via Gunicorn and nginx, but it suddenly stopped working. I thought it could be the daemon problem, but I guess not.  
+When I run the app in venv, it runs ok:
+
+https://preview.redd.it/px64k9diruna1.png?width=1552&format=png&auto=webp&v=enabled&s=22b902d76dfe0cab3716aa94ffe97cd33fb46027
+
+when I curl on the url it returns the page, good.
+
+But when I tried to serve it looks like it froze and isn't showing anything.
+
+Serving via Gunicorn in venv:
+
+https://preview.redd.it/m7qevnhxruna1.png?width=1552&format=png&auto=webp&v=enabled&s=7791513be4c6f30366e374633dc9d4fdf184898e
+
+Serving via Waitress in venv:
+
+https://preview.redd.it/d0rsgi7zruna1.png?width=1552&format=png&auto=webp&v=enabled&s=95bccbd3aaf3833fbe161248b33f83146c6bdd38
+
+Serving via Gunicorn outside the venv:
+
+https://preview.redd.it/fatmt8a3suna1.png?width=1400&format=png&auto=webp&v=enabled&s=20907f315a899b4a5f29ea7fc5c2cbd241bf8952
+
+https://preview.redd.it/6me0xz74suna1.png?width=1500&format=png&auto=webp&v=enabled&s=591f3d66695143b2b1031ee5ea7c4b8b9824d1ab
+
+Honestly, no idea what those debug lines are saying.  
+Thank You for any advice!",0.036162965
+Dynamic Datamodell Classes for Flask with PyDict2Class,2,https://www.reddit.com/r/flask/comments/11ro8si/dynamic_datamodell_classes_for_flask_with/,"I wrote a lib for creating dynamically classes or objects from python dicts or json on runtime.
+
+with this lib you are be able to let your application write his entity him self.
+
+I using it for generating classes out of json request in flask for sqlalchemy or mongoengine.
+
+it works with init on class level and also with init on attributes.
+
+it works with builtin types and also own objects and types.
+
+You can use the BaseClass provided by the lib or use your own Base Class.
+
+To use the SQLAlchemy or Mongoengine Types instead of the builtins types just fill the typedict with the types corresponding to the type name like ""str"": StringField.
+
+In the next Version he will ship with SQL Alchemy Types and as Flask Plugin
+
+**Here is an example of how to use PyDict2Class to generate a class dynamically based on a dictionary:**
+
+`from pydict2class import PyDict2Class  # Create a PyDict2Class object` 
+
+`pdc = PyDict2Class()  # Define a dictionary` 
+
+`d = {""name"": ""Alice"", ""age"": 30}  # Generate a class dynamically based on the dictionary` 
+
+`Person = pdc.generate(d, ""Person"")  # Create an object of the generated class alice = Person(name=""Alice"", age=30)  # Print the object print(alice)`
+
+ 
+
+This will output:
+
+`<__main__.Person object at 0x7f7c4c4b6048>`
+
+Or generate and init
+
+`person = pdc.generate_and_fill(d, ""Person"")`
+
+This will return an object of person with the appropriated data from the dict
+
+[https://pypi.org/project/pydict2class/0.0.1/](https://pypi.org/project/pydict2class/0.0.1/)
+
+[https://github.com/dierk-bentpiening/PyDict2Class](https://github.com/dierk-bentpiening/PyDict2Class)
+
+PyDict2Class
+
+Dynamic create classes from dict or json like you would develop them yourself.
+
+Introduction
+
+This tool makes it possible to generate a Python class with attributes from a dict or a JSON, or to create an object with the corresponding assigned values. The data type of the value of the dict or JSON is recognized and automatically initialized with the appropriate builtins data types. Non Python standard types or methods can also be included by adding them to the type attribute, this can also override the internal data types.
+
+i use this tool to dynamically create mongoengine data classes with the appropriate attributes. Actual i am implement the Functionality to create SQLAlchemy Data Model classes.
+
+Usage
+
+install the library from source or over pip. import package and inherit Class object. e builtins data types. Non Python standard types or methods can also be inc
+
+    from pydict2class import Dict2Class dict2class = Dict2Class()  
+
+Define the Dictionary you want to generate a class from.
+
+    mydict = {""integer"": 1, ""string"": ""my string"", ""boolean"": True, ""list"": [1, 2, 3]}  
+
+Now you have to decide whether you want to generate only the class or if you want to generate the class and instantiate it with the values given in your dict or json.
+
+**Only generate the class:**
+
+    myclass = dict2class.generate(mydict, ""myclassname"")  
+
+The magic is done and you have a dynamic class with the dictionary keys as attribute names and the value data type as datatype.
+
+**Generate class and initialize object:**
+
+    myobj = dict2class.generate_and_init(mydict, ""classfdict"")  
+
+**Use JSON instead of Dict:**
+
+    myjsonstr = '{""integer"": 1, ""string"": ""my string"", ""boolean"": True, ""list"": [1, 2, 3]}' myclass = dict2class.generate(myjsonstr, ""myclass"", json=True)  
+
+**Add Custom methods to types and use them:**
+
+      dict2class = Dict2Class()     dict2class.types = mycustommethods       
+
+**Add list of custom methods to type and use them:**
+
+      dict2class = Dict2Class()     dict2class.types = [custommethod1, custommethod2, custommethod3, custommethod4, custommethod5]  
+
+## Documentation for PyDict2Class:
+
+This module provides a class called PyDict2Class that allows you to dynamically generate Python classes from dictionaries. The generated classes can be used to create objects based on the key-value pairs in the dictionary.
+
+### PyDict2Class class:
+
+The PyDict2Class class has the following methods:
+
+**init(self, debug: bool = False)** \- Constructor method that initializes the PyDict2Class object. It takes an optional parameter 'debug' which, if set to True, enables debug logging.
+
+**types** \- Property that returns the type dictionary maintained by PyDict2Class. The type dictionary maps class names to their corresponding types.
+
+**types.setter** \- Property setter method that allows you to update the type dictionary maintained by PyDict2Class.
+
+**generate(self, condict, classname: str, BaseClass=BaseClass, json: bool = False, prioritizetypedict: bool = False)** \- Method that generates a new class dynamically based on the key-value pairs in the input dictionary 'condict'. The generated class is assigned the name 'classname'. The optional parameter 'BaseClass' allows you to specify a base class that the generated class should inherit from. The optional parameter 'json' allows you to specify whether the input dictionary 'condict' is a JSON string. The optional parameter 'prioritizetypedict' specifies whether to prioritize the type dictionary maintained by PyDict2Class over the built-in types when mapping values to their corresponding types.
+
+**generate\_and\_fill(self, condict, classname: str, BaseClass=BaseClass, type\_dict=None, json=False, prioritizetypedict: bool = False)** \- Method that generates a new class dynamically based on the key-value pairs in the input dictionary 'condict', and then instantiates an object of the generated class with the input dictionary as the constructor arguments. The optional parameter 'type\_dict' allows you to specify a type dictionary to use for type mapping. The optional parameter 'json' allows you to specify whether the input dictionary 'condict' is a JSON string. The optional parameter 'prioritizetypedict' specifies whether to prioritize the type dictionary maintained by PyDict2Class over the built-in types when mapping values to their corresponding types.
+
+### BaseClass class:
+
+The BaseClass class is a helper class that is used as a base class for the dynamically generated classes. It has the following attributes:
+
+**\_dynamic\_class** \- Boolean attribute that indicates whether the class is dynamically generated or not.
+
+**\_created** \- Datetime attribute that records the creation time of the object.
+
+**\_init** \- Boolean attribute that indicates whether the object has been initialized or not.
+
+**\_init\_datetime** \- Datetime attribute that records the initialization time of the object.
+
+**init(self, kwargs)** \- Constructor method that initializes the object with the input keyword arguments.
+
+### Example usage:
+
+**Here is an example of how to use PyDict2Class to generate a class dynamically based on a dictionary:**
+
+from pydict2class import PyDict2Class  # Create a PyDict2Class object pdc = PyDict2Class()  # Define a dictionary d = {""name"": ""Alice"", ""age"": 30}  # Generate a class dynamically based on the dictionary Person = pdc.generate(d, ""Person"")  # Create an object of the generated class alice = Person(name=""Alice"", age=30)  # Print the object print(alice) 
+
+This will output:
+
+<\_\_main\_\_.Person object at 0x7f7c4c4b6048>",0.02402467
+A way to let the user put images anywhere?,2,https://www.reddit.com/r/flask/comments/11rnsm7/a_way_to_let_the_user_put_images_anywhere/,"Hello, i'm using flask to create a web aplication like a blog or a newspapper website. In this app the user is able to create a publication entering a form with all the fields (title, description, keywords, images, content, etc...) and i want that the user can be able to decide if he is gonna put a image where exactly the image going to be. For example if is a publication about programming languajes and the estructure is the following:
+Title
+Main image
+Text
+Text
+Image
+Text
+Image
+Tex
+Image.
+At first place i thougth in put a image every 2 parragraphs but if for example the user wants to put a image after one  parragraph in specific that's gonna be inconsistent. At this moment in thinking using a type of ""tag"" for example. Maybe in the content input is a parragraph afther that the user will have to put something like &image[i] and then i'm gonna validate the text looking for this kind of tag. There is an idea to solve this problem? Thank you. (sorry if my english is bad, im not native speaker and im learning, if you really not understand at all im gonna use a translator)",0.02107848
+Flask Meetup Group?,10,https://www.reddit.com/r/flask/comments/11rkq2f/flask_meetup_group/,"Would anyone be interested in working together on some flask projects? I am learning Flask following [Miguel Grinberg's Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world), and was wondering if anyone wanted to meet up just to hang out and share projects. I have created a discord server. All are welcome.
+
+ [https://discord.gg/C2yhxR5W](https://discord.gg/C2yhxR5W)",0.08716487
+Handle pagination from elasticsearch results,6,https://www.reddit.com/r/flask/comments/11r7hzk/handle_pagination_from_elasticsearch_results/,My app uses elasticsearch to search. Search form is handled by wtforms. I have question how to handle pagination. I have no problem displaying results and creating next page links but when next page link is clicked the GET request is sent and form data is lost so fuction knows page but don't know what to search for. Is there some easy workaround to implement pagination properly? I tried to replace next page links with buttons which submit form along with correct page number but when form fields have changed and button was clicked it submitted new form data along with page parameter. I also thought about storing form fields in session however there is requirement that form fields can be dynamically added with Javascript,0.19986437
+Stuck with Flask and SQLAlchemy - Seeking guidance and advice,5,https://www.reddit.com/r/flask/comments/11r6lf4/stuck_with_flask_and_sqlalchemy_seeking_guidance/,"So, i am learning flask and sqlalchemy. When i go to the development page that flask gives me i have this exception:
+
+    sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file 
+
+Now, i checked the names of the files, the databases, the location of the database and it still doesn't work. This is the code of the model of the database file:
+
+    from flask_sqlalchemy import SQLAlchemy  
+    db = SQLAlchemy()  
+    class People(db.Model):     
+        id = db.Column(db.Integer, primary_key=True)     
+        name = db.Column(db.String(200), unique=True, nullable = False)     
+        age = db.Column(db.Integer)     
+        birth = db.Column(db.Integer) 
+
+And this is the code of the [app.py](https://app.py/) file:
+
+    from flask import Flask
+    from Models import db, People
+    
+    app = Flask(__name__)
+    app.config[""SQLALCHEMY_DATABASE_URI""] = ""sqlite:///database\\database.db""
+    app. config[""SQLALCHEMY_TRACK_MODIFICATIONS""] = False
+    db.init_app(app)
+    
+    
+    
+    @app.route(""/"")
+    def home():
+        return ""<h1>Pagina principal</h1>""
+    
+    @app.route(""/api/database"")
+    def getpersonas():
+        people = People.query.all()
+        print(people)
+        return ""<h1>Success</h1>""
+    
+    
+    if __name__ == '__main__':
+       app.run(debug=True, port=4000)
+
+i would be very happy if someone could help me",0.024378212
+Does anyone know a good tutorial / article about migrating to SQLALchemy 2.0?,11,https://www.reddit.com/r/flask/comments/11r51zh/does_anyone_know_a_good_tutorial_article_about/,"I'm running a flask API with flask-sqlalchemy and wanted to update to sqlalchemy 2, but there seems to be a lot of stuff changed. All my type annotations broke for all the relationships, for example, and there seems to be a new MappedColumn that I'm supposed to use?",0.02343543
+"client_secrets.json', 'No such file or directory' from PythonAnywher",2,https://www.reddit.com/r/flask/comments/11r0per/client_secretsjson_no_such_file_or_directory_from/,I tried using both relative and absolute paths all to no avail. Any help?,0.017341165
+Referencing images with Flask causing problems with CSS styling,2,https://www.reddit.com/r/flask/comments/11qv2ra/referencing_images_with_flask_causing_problems/,"Hey guys, I have just started messing around with Flask but I am running into issues when using photos in HTML and trying to style them with CSS. I am referencing the images like:
+
+`<img src=""{{url_for('static', filename='Large-movie2.jpg') }}"" alt="""" class=""row_poster"" />`
+
+But when trying to resize them or position them in CSS, they are unaffected. The pictures are displaying, just not doing what I want in CSS. When inspecting in the browser I can see that the images are not having any CSS applied to them.   
+
+
+I know that the URL referencing is the issue because I made a new test project without flask, but using the same code and it works fine. Does anyone else have this problem or know how to fix it?   
+Thank you",0.028974265
+IntegrityError - qlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed,1,https://www.reddit.com/r/flask/comments/11qlz6w/integrityerror_qlalchemyexcintegrityerror/,"Hi all,
+
+I'm getting this error while trying to submit a form:
+
+    class SubmitOrderForm(FlaskForm):
+        submit = SubmitField(label='Confirm Order')
+
+These are the models in DB I defined (impacting this process):
+
+    class Products(db.Model):
+        id = db.Column(db.Integer(), primary_key=True)
+        product_name = db.Column(db.String(length=25), nullable=False, unique=True)
+        product_description = db.Column(db.String(length=25), nullable=False, 
+                                    unique=False) #evaluate charachters limit
+        product_price = db.Column(db.Integer, nullable=False, unique=False)
+        product_image = db.Column(db.String(length=20), nullable=True, unique=False)
+        orders = db.relationship('OrderProduct', backref=db.backref('products', 
+                             lazy=True))
+    
+    class Shopping_cart(db.Model):
+        id = db.Column(db.Integer(), primary_key=True)
+        user_id = db.Column(db.Integer(), db.ForeignKey('user.id'), nullable=False)
+        product_id = db.Column(db.Integer(), db.ForeignKey('products.id'), 
+                           nullable=False)
+        quantity = db.Column(db.Integer(), nullable=False)
+        batch = db.Column(db.DateTime)
+    
+        user = db.relationship('User', backref=db.backref('shopping_cart', 
+                           uselist=False))
+        product = db.relationship('Products', backref=db.backref('shopping_cart_items', 
+                               lazy=True))
+    
+    class Orders(db.Model):
+        id = db.Column(db.Integer(), primary_key=True)
+        user_id = db.Column(db.Integer(), db.ForeignKey('user.id'), nullable=False)
+        order_date = db.Column(db.DateTime, default=datetime.datetime.now())
+        order_status = db.Column(db.String(length=15), nullable=False, unique=False, 
+                             default=""Open"")
+        total_cost = db.Column(db.Integer(), nullable=False, unique=False)
+        products = db.relationship('OrderProduct', backref=db.backref('orders', 
+                               lazy=True))
+    
+    class OrderProduct(db.Model):
+        id = db.Column(db.Integer(), primary_key=True)
+        order_id = db.Column(db.Integer(), db.ForeignKey('orders.id'), nullable=True)
+        product_id = db.Column(db.Integer(), db.ForeignKey('products.id'), 
+                           nullable=True)
+        quantity = db.Column(db.Integer(), nullable=False)
+
+I came up with various versions of this code, but nothing seems to work:
+
+    if submit_order_form.validate_on_submit():
+            new_order = Orders(user_id=current_user.id, total_cost=total_price)
+            db.session.add(new_order)
+            db.session.commit()
+           
+            bought_items = Shopping_cart.query.filter_by(user_id=current_user.id).all()
+    
+            for item in bought_items:
+                new_order_product = OrderProduct(order_id=new_order.id,
+                                                 product_id=item.product.id,
+                                                 quantity=item.quantity)
+               
+                db.session.add(new_order_product)
+               
+    
+            db.session.commit()
+            flash('Your order has been submitted!', 'success')
+            return redirect(url_for('home_page'))
+
+What I'm trying to do is basically, to move everything from Shopping cart to Orders, when form gets validated, but i get the following error:
+
+    sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: orders.product_id
+    [SQL: INSERT INTO orders (user_id, order_date, order_status, total_cost) VALUES (?, ?, ?, ?)]
+    [parameters: (6, '2023-03-13 22:12:49.025268', 'Open', 3)]
+
+Can somebody explain me what I'm missing ? 
+
+Thanks !",0.011183795
+How to remove Server header?,1,https://www.reddit.com/r/flask/comments/11qcaja/how_to_remove_server_header/,"I would like to remove the Server header, as it shows the python version and backend info. I have tried overwriting the header, but it instead creates a duplicate header with an empty string.
+
+This is what I've tried
+
+    @blueprint.after_request
+    def add_header(response):
+        response.headers['Server'] = ''
+        return response
+
+However, I am wondering if I should do this in the nginx configuration instead.
+
+&#x200B;",0.017341165
+Duplicate Payment Response Callback,2,https://www.reddit.com/r/flask/comments/11q60bo/duplicate_payment_response_callback/,"hi, i have coded a payment gateway in flask for my site which works fine but the problem is sometimes  payment gateway sends the response call back twice, even though i am inserting the invoice id in the database and update thier status so that we don't procees the same invoice id again, but the payment gateway sends the request twice at the exact same time which causes to process the same order and invoice id twice (for example someone want to deposit $1 into thier website account, $2 wil be deposited in their account.) because i received the payment callback twice, please help me how can i handle this.
+Thanks in advance",0.021549871
+How do I use flask + celery?,18,https://www.reddit.com/r/flask/comments/11q4wjr/how_do_i_use_flask_celery/,"How do I combine them together?
+I want to load huge model only for celery workers, and don't load it for flask instanses.
+
+How do I properly do it?",0.0126288915
+Apache help!!,2,https://www.reddit.com/r/flask/comments/11q1c3e/apache_help/,"Plz help!
+
+I am trying to setup a reverse proxy from Apache to Flask. But, Apache received 404 return code.
+
+I configured a Reverse Proxy in the VirtualHost block in Apache as follow (replace the real server name with example.com)
+
+    <VirtualHost XXX.XXX.XXX>XXX:443>     ...     ProxyPreserveHost On     ProxyPass /csm http://localhost:5000     ProxyPassReverse /csm http://localhost:5000 </VirtualHost> 
+
+I also added this to my Flask
+
+    from werkzeug.middleware.proxy_fix import ProxyFix app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1) 
+
+The expected scenario is if the user types ""https://example.com/csm"", my application will return /authenticate/login?next=%2F with the @login\_required decorator and display the login page.
+
+When I typed [https://example.com/csm](https://example.com/csm), it returned 404. On the browser location box, it shows [https://example.com/authenticate/login?next=%2F](https://example.com/authenticate/login?next=%2F) which is what I would expect. But, it returned with page not found. I verified mod\_proxy and mode\_proxy\_http are loaded. I could see Apache did contact Gunicorn and my application did return the URL. What am I missing??
+
+Here is the curl verbose call using 'curl -v [https://www.example.com/csm'](https://www.example.com/csm%27)
+
+    * h2h3 [:method: GET] * h2h3 [:path: /csm] * h2h3 [:scheme: https] * h2h3 [:authority: www.example.com] * h2h3 [user-agent: curl/7.84.0] * h2h3 [accept: */*] * Using Stream ID: 1 (easy handle 0x7fd562011a00) > GET /csm HTTP/2 > Host: www.example.com > user-agent: curl/7.84.0 > accept: */* >  < HTTP/2 302  < strict-transport-security: max-age=31536000 < server: gunicorn < date: Mon, 13 Mar 2023 05:01:28 GMT < content-type: text/html; charset=utf-8 < content-length: 262 < location: http://www.example.com/authenticate/login?next=%2F < vary: Cookie,Accept-Encoding < set-cookie:      session=eyJfZmxhc2hlcyI6W3siIHQiOlsibWVzc2FnZSIsIlBsZWFzZSBsb2cgaW4uIl19XX0.ZA6uKA.OpyUIrP6XwKxov_ITMIehyF7Qm0; HttpOnly; Path=/ <  <!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 3.2 Final//EN""> <title>Redirecting...</title> <h1>Redirecting...</h1> * Connection #0 to host www.example.com left intact <p>You should be redirected automatically to target URL: <a href=""/authenticate/login?  next=%2F"">/authenticate/login?next=%2F</a>. If not click the link.%",0.017843807
+"I tried creating a second database in flask-sqlalchemy for pytesting database and it doesn't seem to be working. Here is the error. "" E TypeError: SQLAlchemy.create_all() got an unexpected keyword argument 'bind_key' "". Can someone help fix this?",1,https://www.reddit.com/r/flask/comments/11px8rz/i_tried_creating_a_second_database_in/,"it is probably just a careless mistake but I can't spot it. Also I screwed up the title in this post but the point should get across.
+
+&#x200B;
+
+&#x200B;
+
+Here is the full error. I am using hastebin because pastebin blocked the code.
+
+[https://hastebin.com/share/vujisijeji.kotlin](https://hastebin.com/share/vujisijeji.kotlin)
+
+&#x200B;
+
+To start off here is the documentation for pytesting.
+
+[https://flask.palletsprojects.com/en/2.2.x/testing/](https://flask.palletsprojects.com/en/2.2.x/testing/)
+
+I have some code like runner function etc that I didn't include
+
+&#x200B;
+
+Here is the documentation for creating 2 databases.
+
+[https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/binds/](https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/binds/)
+
+&#x200B;
+
+&#x200B;
+
+One thing I want to add the file test\_app.db is created. It just is empty. It is also in the same folder as app.db. Not sure if that makes a difference.
+
+&#x200B;
+
+**Here is what I tried.**
+
+&#x200B;
+
+&#x200B;
+
+&#x200B;
+
+&#x200B;
+
+**config,py**
+
+    class Config(object): 
+    # code
+        # DATABASE_URI = sqlite:///app.db,  enviroment variable
+        # 'sqlite:///' and os.path.join(basedir, 'app.db') = sqlite:///C:\Users\nmyle\OneDrive\Desktop\flaskcodeusethis\flaskblog2\app\app.db
+        SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI') or \
+        'sqlite:///' + os.path.join(basedir_for_database, 'app.db')   
+        ''' Database For pytesting'''
+        # Test_DATABASE_URI = sqlite:///test_app.db.
+        # 'sqlite:///' and os.path.join(basedir, 'test_app.db') = sqlite:///C:\Users\nmyle\OneDrive\Desktop\flaskcodeusethis\flaskblog2\app\test_app.db
+        Test_DATABASE_URI = os.environ.get('Test_DATABASE_URI') or \
+        'sqlite:///' + os.path.join(basedir_for_database, 'test_app.db')
+        # for 2+ databases
+        SQLALCHEMY_BINDS = { ""testing_app_db"": Test_DATABASE_URI }    
+
+**conftest.py**
+
+&#x200B;
+
+    PytestConfig is just an extra config like in the example here
+    
+    https://flask.palletsprojects.com/en/2.2.x/config/ .
+    
+    app = create_app(PytestConfig)
+    
+    I put the table in here temperoraily to the test the code.
+    
+    class UserTest(UserMixin, db.Model):
+        __bind_key__ = ""testing_app_db""
+        id = db.Column(db.Integer, primary_key=True)
+        #  unique blocks the same usernames
+        # I can't have Nullable=False because it will make me add the columns everytime I add a column in User table
+        username = db.Column(db.String(80), unique=True)
+        hashed_password = db.Column(db.String(128))
+        email = db.Column(db.String(120), unique=True)
+        registration_confirmation_email = db.Column(db.Boolean, default=False) 
+        bind_key = ""testing_app_db""
+    
+    
+    
+    @pytest.fixture
+    def new_user(): 
+        '''
+        Given a User model
+        When a new user is being created 
+        Check the User database columns
+        '''    
+        username = 'fkpr[kfkuh'
+        email = os.environ['TESTING_EMAIL_USERNAME']
+        plaintext_password = 'pojkp[kjpj[pj'
+        # converting password to array of bytes
+        bytes = plaintext_password.encode('utf-8')
+        # generating the salt
+        salt = bcrypt.gensalt()
+        # Hashing the password
+        hashed_password = bcrypt.hashpw(bytes, salt)
+     
+        
+        #forms_for_database = [username, email, plaintext_password,  hashed_password]
+        current_user = UserTest(username='fkpr[kfkuh',
+        hashed_password=hashed_password, email=os.environ['TESTING_EMAIL_USERNAME'])
+        
+        return current_user
+    
+    
+    
+    @pytest.fixture() 
+    def create_db(new_user):
+        # Create the database and the database table
+        with app.test_request_context():
+     
+            db = SQLAlchemy(app)
+            db.create_all(bind_key=""testing_app_db"") # do I need app?
+        
+            db.session.add(new_user)
+            db.session.commit()
+            ''' 
+            yield freezes till the functions ends. 
+            This also allows you to create and delete the database 
+            while putting code inbetween
+            '''
+            yield db.drop_all(bind_key=""testing_app_db"")
+            
+            usertest = UserTest.query.filter_by(username=new_user.username).first()
+            
+        
+            assert usertest.username != None # assert user?
+
+**test\_models.py**
+
+    def test_the_database(create_db, new_user):
+        create_db(new_user)",0.22311419
+does request.get_json() return the body and headers of a request in a single json object?,3,https://www.reddit.com/r/flask/comments/11pp9e3/does_requestget_json_return_the_body_and_headers/,,
+Need Help - updated my sqlalchemy,1,https://www.reddit.com/r/flask/comments/11pomzi/need_help_updated_my_sqlalchemy/,"So i decided to update my sqlalchemy , SQLalchemy and Flask-Sqlalchemy as I wanted to use some of the functionality of the new updates.
+
+Having done this now non of my code works and I'm really stressing out as i have a deadline due soon for it. I  wondered if anyone knew of how to see you older versions of these packages that you had.",0.017341165
+How much 'behind the scenes' python code is too much?,14,https://www.reddit.com/r/flask/comments/11pk0wk/how_much_behind_the_scenes_python_code_is_too_much/,"Hi all
+
+This is probably a dumb question (which if you look at my post history is all dumb questions on this sub (and thank you to all those that have answered - I've learned so much)), but I'm curious if there is such a thing as 'too much' python code behind the scenes for my flask app.
+
+For context - I am creating an app that will essential act as a window into a lot of my code that I have created over the years on a project. Each route has a decent about of python functions, classes, code, etc. that needs to be ran to populate a page's content (such as tables and graphs) for my site. I've done all that I can to make this as quick as possible such as vectorization and storing in DBs when possible (rather than recalculating every time a webpage is opened).
+
+To me (and I'm still learning) flask is great because it integrates so well with all of my other code I already have, but now it is giving me a way to tie it all together for people to eventually see. I just want to make sure using all of my code behind the scenes is okay...most tutorials I have seen are not code heavy like my app has become, so I'm curious. 
+
+TLDR: is there such a thing as too much 'behind the scenes' python code to populate a website/route?",0.25462922
+Can I create a realtime RESTful API with flask and flask-socketio?,9,https://www.reddit.com/r/flask/comments/11pjvdf/can_i_create_a_realtime_restful_api_with_flask/,"I am creating a chat app as a side project and I want to create it as a production ready project because all my other project are ""just"" functional. I want to use flask instead of django because it will force me to do many things by myself thus increase learning. 
+
+I want to separate backend and frontend so I want to create a RESTful API. Is it possible to join flask and flask-socketio in such a way that final result would be an api where I can send JSON when posting messages and get response as JSON too, and notify others when message is sent to them (basically stuff for which websockets are used)? Or I need to use websockets module of python to implement a system myself? 
+
+And which flask design pattern should I use? I haven't used any concrete design pattern till now, just created random files and made them work. [Here](https://www.softwaretestinghelp.com/flask-design-patterns-for-web-applications/) is a link which I found online for flask design patterns. I want to use a design pattern such that in future if I wanted to do a  major update to my API, it should not  be very hard designwise. 
+
+Below image shows my ER diagram for the API db. Is it good enough? I just want users to do one to one chat for now so that I can focus less on feature part and focus more on learning part.
+
+https://preview.redd.it/v38v9wmbccna1.png?width=852&format=png&auto=webp&v=enabled&s=ac9784a925749ef5ab27f40c8706608a3fa90056
+
+Thanks for reading till end.",0.027913637
+upload images to flask application,3,https://www.reddit.com/r/flask/comments/11pf6eo/upload_images_to_flask_application/,"Hi,
+This is my first time doing web development with flask and I'm getting an error while saving the image, more specifically in this line of code:
+
+File.save(is.path.join(app config['UPLOAD_FOLDER'], filename)
+
+Does anyone have any idea why I'm getting this error?",0.011686437
+Building a Flask Api with firebase realtime database and react,2,https://www.reddit.com/r/flask/comments/11pav55/building_a_flask_api_with_firebase_realtime/,"trying flask and react for the first time
+
+i'm having issues with rendering data in the frontend, any help please?",0.024849601
+Youtube and Instagram post downloader,0,https://www.reddit.com/r/flask/comments/11p7hhq/youtube_and_instagram_post_downloader/,Youtube and Instagram downloader using Flask: [https://www.f4nsix.xyz/](https://www.f4nsix.xyz/),0.018095128
+Socket.on async function not executing,3,https://www.reddit.com/r/flask/comments/11p6hva/socketon_async_function_not_executing/,"I am trying to run an async function when i receive socket from frontend:  
+ 
+
+`socketio.on(""bottoken"")`  
+`async def gettoken(data):`
+
+&#x200B;
+
+however I am getting this error:
+
+RuntimeWarning: coroutine 'gettoken' was never awaited
+
+for p in map(os.fspath, paths):
+
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+
+any help would be appreciated thanks",0.07371122
+PYTHON script to flask app,8,https://www.reddit.com/r/flask/comments/11p4iaj/python_script_to_flask_app/,"I have created a python program and need to convert that to flash web application. I have tried my level best but after running the local host , I am experiencing time error.
+What should I do?",0.021903414
+flask bcrypt vs. werkzeug generate_password_hash,8,https://www.reddit.com/r/flask/comments/11p0326/flask_bcrypt_vs_werkzeug_generate_password_hash/,Should I use Flask Bcrypt for password hashing or Werkzeug's built in utils? Which is more secure?,0.021314176
+TimeZone - Local Machine vs VENV vs Container,2,https://www.reddit.com/r/flask/comments/11oyb4s/timezone_local_machine_vs_venv_vs_container/,"edit: per commenters, this is bad practice and I shouldn't have a need to ""solve"" anything. If I use separate database for development, I wouldn't have an issue.
+
+I am running into an annoying bug as I develop my Flask application on my local machine, within a **venv**. Certain ""checks"" are saved to a SQL database as a timestamp (without a timezone).
+
+Unfortunately, my **venv** seems to default to GMT time. The deployed application (docker container), sets the timezone via environmental variable, and is my local timezone, which is a few hours behind GMT.
+
+    # .env file or Docker Compose parameter
+    TZ='my/timezone'
+
+So I might get an error after doing some development in my **venv**, because a time of the future is in the database, and resulting queries are thrown off. 
+
+Is there a way to ""set"" a timezone for use in the flask application? I already have an `if/else` block at the start of `__init__.py` to adjust logging for deployment / development.
+
+    if not app.debug:
+        # gunicorn logging
+    else:
+        app.logger.setLevel(logging.INFO) # debug logging
+        # set timezone here?",0.04785245
+jinja2.exceptions.templatenotfound: index.html,2,https://www.reddit.com/r/flask/comments/11ot9n3/jinja2exceptionstemplatenotfound_indexhtml/,I am getting this error because I have put the index.html file in the root directory instead of the templates directory. Is there a way i can make it work with that file still being in the root directory?,0.01646154
+Securing an API endpoint without login?,5,https://www.reddit.com/r/flask/comments/11oo4vj/securing_an_api_endpoint_without_login/,"Is securing an API endpoint with bearer keys in the header safe enough for my flask app?. I don't want the user to login with a traditional username and password.
+
+On the server side, the keys are stored in a locally accessible db - encrypted.
+
+The client makes the request, where the header contains a 50 character key for access to the endpoint.",0.012063419
+"I made Flask-Squeeze 2.0, it squeezes responeses with minification and compression!",13,/r/Python/comments/11okzqb/i_made_flasksqueeze_20_it_squeezes_responeses/,,
+Terminal | GPT-3.5t uses Flask with OPENAI engine model gpt-3.5-turbo-0301,2,/r/webdev/comments/11okowc/terminal_gpt35t_uses_openai_engine_model/,,
+Need suggestions for flask/react app,3,https://www.reddit.com/r/flask/comments/11o5seu/need_suggestions_for_flaskreact_app/,"Hi everyone, I am new to development and trying to develop a fullstack app with flask and react. I am not aware of any particular stack trait with these two.
+
+Objective: creating an app where we will have live contents like graph, chart and probably maps as well. 
+
+Ask: Is it a good choice to use flask and react together. Is it possible to scale and create production level applications where real time data is in picture.",0.017969469
+turbo flask config,2,https://www.reddit.com/r/flask/comments/11o32j5/turbo_flask_config/,Can anyone explain how I could configure turbo flask through a flask configuration object.,0.02048268
+How can I make the requests object retrieve two values with the same id?,3,https://www.reddit.com/r/flask/comments/11o0jb6/how_can_i_make_the_requests_object_retrieve_two/,"Testing this endpoint:
+
+    from flask import render_template, request, redirect
+    
+    
+    @app.route('/config', methods=['GET', 'POST'])
+    def config():
+        if request.method == 'POST':
+            print(request.form)
+            genres = request.form['genres']
+            styles = request.form['styles']
+            decades = request.form['decades']
+            return render_template('config.html', genres=genres, styles=styles, decades=decades)
+
+On my config.html the user can add additional genres with a button press as shown below:
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+            <title>Configuration</title>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    </head>
+    
+    <body>
+    <script type='text/javascript'>
+            function addGenre() {
+                    const elem = document.querySelector('#genres');
+                    const clone = elem.cloneNode(true);
+                    elem.after(clone);
+            }
+    </script>
+    <script type='text/javascript'>
+            function addStyle() {
+                    const elem = document.querySelector('#styles');
+                    const clone = elem.cloneNode(true);
+                    elem.after(clone);
+            }
+    </script>
+    
+    <form method='POST' action='/config'>
+            <label for='genres'>Select a Genre:</label>
+            <select name='genres' id='genres'>
+                    <option value='None' selected>None</option>
+                    {% for genre in genres %}
+                    <option value=""{{ genre['genre'] }}"">{{ genre['genre'] }}</option>
+                    {% endfor %}
+            </select>
+            <br><br>
+            <label for='styles'>Select a Style:</label>
+            <select name='styles' id='styles'>
+                    <option value='None' selected>None</option>
+                    {% for style in styles %}
+                    <option value=""{{ style['style'] }}"">{{ style['style'] }}</option>
+                    {% endfor %}
+            </select>
+            <br><br>
+            <label for='decades'>Select a Decade:</label>
+            <select name='decades' id='decades'>
+                    <option value='None' selected>None</option>
+                    {% for decade in decades %}
+                    <option value=""{{ decade['decade'] }}"">{{ decade['decade'] }}</option>
+                    {% endfor %}
+            </select>
+    </form>
+    <br><br>
+    <button onClick='addGenre()'>Add another genre</button>
+    <br><br>
+    <button onClick='addStyle()'>Add another style</button>
+    </body>
+    </html>
+
+The print statement in the config() function prints two 'genres' in this case 'Rock' and 'Electronic' but if I change the print statement to print(request.form\['genres'\]) it just shows 'Rock'. How can I make it so that I can print both 'Rock' and 'Electronic' in a list?",0.019603057
+Should I be committing the contents of migrations directory?,12,https://www.reddit.com/r/flask/comments/11nyjgu/should_i_be_committing_the_contents_of_migrations/,I am using flask-migrate and SQL alchemy. Should I commit migrations directory to github?,0.016587202
+Flasky way to store secrets my users input into my app?,6,https://www.reddit.com/r/flask/comments/11nybkj/flasky_way_to_store_secrets_my_users_input_into/,"I want to add the ability for my application to call a web hook. This entails the user providing a URL and header information. The header information is likely to include an API token or even a password that the user would consider at least somewhat ""secret.""
+
+  
+I need to send the unencrypted secret along in the header, so I can't just do a one way hash. However, it doesn't feel right to keep the secret in clear text in my database.
+
+My web searches has come up empty.  
+
+
+1. Is this something I should even be worried about?
+2. Are their facilities in Flask that would solve this problem for me?",0.035220183
+How would I rewrite this form using flask-wtf?,3,https://www.reddit.com/r/flask/comments/11nukx3/how_would_i_rewrite_this_form_using_flaskwtf/,"    <input
+        type=""text""
+        class=""class1 class2""
+        id=""exampleFormControlInput1""
+        placeholder=""Username"" 
+    />
+    <label
+        for=""exampleFormControlInput1""
+        class=""class1 class2""
+        >Username
+    </label>
+
+This is what I have
+
+    {{ form.username(placeholder_=""Username"", id_=""exampleFormControlInput1"", class_=""class1 class2"" }}
+    {{ form.username.label(for_=""exampleFormControlInput1"", class_=""class1 class2"") }}
+
+But I'm not sure if this is correct, because the placeholder text doesn't seem to be rendering",0.012566062
+Multiple Flask sites on an EC2 Insurance,13,https://www.reddit.com/r/flask/comments/11nh784/multiple_flask_sites_on_an_ec2_insurance/,"I recently launched my first Flask site. Used a Corey Shafer video to get it up and running. 
+
+It’s on an Ubuntu box and using nginx and supervisor. 
+
+I have a second site that I’d like to put up on the box. Can’t quite figure it out tho. 
+
+I’ve been able to still hit the original site, but have had no luck accessing the new one. 
+
+Saw one tutorial that used system services for each site in lieu of supervisor. Tried that, and pretty much brought down the box. 
+
+I am not a devops/server guy (obviously). 
+
+Anybody have a tl;dr on doing this? It’s all AWS based. Domains in route 53, static ip on the ec2 instance. 
+
+I’m about to crash, but can share some of the links from tutorials that I tried and failed tonight. 
+
+In the meantime, was hoping somebody might have a simple process that they’re willing to share. 
+
+Thanks!
+
+EDIT: EC2 Instance. Not EC2 Insurance. ffs :D",0.030859824
+Sending data from Flask backend to HTML dynamically,6,https://www.reddit.com/r/flask/comments/11neg4l/sending_data_from_flask_backend_to_html/,"Hello, 
+
+A Flask newbie here. I want to send data from my Flask backend, which runs a detection model, to the front end. My primary usecase is to update the UI whenever an object of interest is detected from my object detection model. 
+
+What do you think the best way is to do this task? Any advice is appreciated. 
+
+Thanks in advance!",0.014765122
+Did OPENAI contact other Flask developers by email or is Terminal | GPT-3.5t special?,0,/r/ChatGPT/comments/11nav90/did_openai_contact_other_developers_by_email_or/,,
+Can you break my Flask authentication system?,0,https://www.reddit.com/r/flask/comments/11n06om/can_you_break_my_flask_authentication_system/,"I recently created a Flask authentication system that focuses on security. As a challenge, I invite you to try and find vulnerabilities in my system.
+
+The repository contains a comprehensive README.md that explains the system's design and implementation. I believe that it can be a great exercise for developers who are interested in security and want to test their skills.
+
+You can access the repository at  [**https://github.com/IdanHajbeko/Secure-Flask-Auth**](https://github.com/IdanHajbeko/Secure-Flask-Auth).
+
+Please feel free to fork the repository, test the system, and share your feedback. I am open to any suggestions, comments, or contributions that can help me improve this project.
+
+Let's see if you can break my Flask authentication system!",0.012691722
+flask based file browser and search function,2,https://www.reddit.com/r/flask/comments/11mz2y2/flask_based_file_browser_and_search_function/,"I'm trying to build a flask based file browser for a given directory on my Linux system.
+
+How can I implement a dynamic search function so that it will query the list and get me results?
+
+Currently I'm not using any database and simply listing the directory which is rendered on the UI",0.013382856
+My Flask Project: A Spotify Classical Music Streaming Website,24,https://www.reddit.com/r/flask/comments/11mywvs/my_flask_project_a_spotify_classical_music/,"I've completed my first project using a Flask backend with Vue.js frontend. I've created a website which uses Spotify, but repurposed for Classical Music streaming.
+
+Composer Explorer: [https://www.composerexplorer.com/](https://www.composerexplorer.com/)
+
+Browse by composers/works, performers, and create your own customized radio stations. Add performances to your favorites and help rank the best albums.
+
+Free to use for people with Spotify Premium.
+
+Enjoy, and let me know what you think! :)
+
+Github: [https://github.com/shanewilliams29/composer-explorer-vue/](https://github.com/shanewilliams29/composer-explorer-vue/)",0.009487377
+App suddenly started returning 404 not found after I allowed some firewall permission,4,https://www.reddit.com/r/flask/comments/11mxc3j/app_suddenly_started_returning_404_not_found/,"this is the code of one of the app:
+
+    import requests
+    
+    
+    
+    from flask import Flask, request, jsonify
+    
+    app = Flask(__name__)
+    
+    
+    @app.route('/api', methods = ['Get'])
+    def index():
+    
+        d = {}
+        inputpro = str(request.args['query'])
+        url = f'https://ipapi.co/{inputpro}/json/'
+    
+        r = requests.get(url)
+        t = r.json()
+        y= t['country_name']
+        d['output'] = y
+        return d
+    
+    
+    if __name__== '__main__':
+        app.run()
+    
+    
+    
+    
+    
+
+I was about to test this after putting \`host='0.0.0.0\` and port=81 in it because some other flask app was using that port. But after doing that a firewall permission window popped up and I allowed it, I think it was about using \`host='0.0.0.0\` and port=81. But after that this app and the other flask app which was working fine before both started to give 404 not found error.  How do I make them run again?",0.11057663
+jinja2.exceptions.UndefinedError: 'type object' has no attribute 'include_jquery',1,https://www.reddit.com/r/flask/comments/11mthcb/jinja2exceptionsundefinederror_type_object_has_no/,"So I'm trying to setup this website but I can't even access the index after flask run I've installed all libraries needed  
+
+
+Python Code:
+
+    from app import app,db
+    
+    from app.models import User
+    
+    u/app.shell_context_processor
+    def make_shell_context():
+        return {'db': db, 'User': User}
+
+ base.html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        {{ moment.include_jquery() }}
+        {{ moment.include_moment() }}
+        <link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"" integrity=""sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"" crossorigin=""anonymous"">
+        <link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"" integrity=""sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"" crossorigin=""anonymous"">
+        <script src=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"" integrity=""sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"" crossorigin=""anonymous""></script>
+        <link rel=""stylesheet"" type=""text/css"" href=""{{ url_for('static',filename='styles/base.css') }}"">
+        <link rel=""stylesheet"" type=""text/css"" href=""{{ url_for('static',filename='styles/about.css') }}"">
+        <link rel=""stylesheet"" type=""text/css"" href=""{{ url_for('static',filename='styles/index.css') }}"">
+        <link rel=""stylesheet"" type=""text/css"" href=""{{ url_for('static',filename='styles/dashboard.css') }}"">
+        <link rel=""stylesheet"" type=""text/css"" href=""{{ url_for('static',filename='styles/display.css') }}"">
+        <link rel=""stylesheet"" type=""text/css"" href=""{{ url_for('static',filename='styles/feedback.css') }}"">
+        <link rel=""stylesheet"" type=""text/css"" href=""{{ url_for('static',filename='styles/login.css') }}"">
+    
+        
+        <link rel=""stylesheet"" href=""https://use.fontawesome.com/releases/v5.0.13/css/all.css"" integrity=""sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"" crossorigin=""anonymous"">
+        
+        <script src=""https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js""></script>
+        
+        <link href=""https://fonts.googleapis.com/css?family=Saira"" rel=""stylesheet"">
+    
+        
+    	{% if title %}
+    	<title>{{ title }}</title>
+    	{% else %}
+    	<title>Welcome_segregator</title>
+    	{% endif %}
+    </head>
+    <body>
+    
+        
+      
+        <nav class=""navbar navbar-fixed-top  navbar-custom"">
+        <div class=""container"" >
+        <div class=""navbar-header"">
+            
+                {% if current_user.username %}
+                <a class=""navbar-brand nav-custom"" href=""{{ url_for('index') }}"" ><span id=""header""><span id=""logo""><strong>Welcome </strong></span id=""header""><strong>{{ current_user.username|striptags }} !</strong></span></a>
+                {% else %}
+                <a class=""navbar-brand nav-custom"" href=""{{ url_for('index') }}""><span id=""header""><span id=""logo""><strong>Welcome </strong></span></span></a>
+                {% endif %}
+        </div>
+        <ul class=""nav navbar-nav navbar-right "" >
+                <li class=""nav-custom""><a class=""nav navbar-nav"" href=""{{ url_for('index') }}""><span class=""glyphicon glyphicon-home ""> <span id=""header""><strong>Home</strong></span></a></li>
+                <li><a class=""nav navbar-nav"" href=""{{ url_for('dashboard') }}""><span class=""glyphicon glyphicon-dashboard""> <span id=""header""><strong>Dashboard</strong></span></a></li>
+                <li><a class=""nav navbar-nav"" href=""{{ url_for('about') }}""><span class=""glyphicon glyphicon-user""> <span id=""header""><strong>About Us</strong></span></a></li>
+                <li><a class=""nav navbar-nav"" href=""{{ url_for('feedback') }}""><span class=""glyphicon glyphicon-pencil""> <span id=""header""><strong>Feedback</strong></span></a></li>
+                {% if current_user.is_anonymous %}
+                <li><a class=""nav navbar-nav"" href=""{{ url_for('login') }}""><span class=""glyphicon glyphicon-log-in""> <span id=""header""><strong>Login</strong></span></a></li>
+                {% else %}
+                <li><a class=""nav navbar-nav"" href=""{{ url_for('logout') }}""><span class=""glyphicon glyphicon-off""> <span id=""header""><strong>Logout</strong></span></a></li>
+                {% endif %}
+            
+        </ul>
+          </div>
+        </nav>
+    
+    
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+    
+            {% block content %}{% endblock %}
+    
+            
+    
+    </body>
+    </html>
+
+index.html
+
+    {% extends ""base.html"" %}
+    
+    {% block content %}
+    
+    <div class=""container main-body"">
+    
+    	
+    	<div class=""row"">
+    		<div class=""col-md-6"" id=""introduction"">
+    				<hr>
+    				<br>
+    				<br>
+    				<p>The exponential growth of waste materials due to
+    				rapid urbanization has put an immense pressure on our
+    				environment. Improper handling of waste materials and their
+    				disposal has polluted our ground water and land resources.
+    				Therefore, it is imperative that we examine the process of waste
+    				collection, segregation and automation for better management of
+    				the waste materials. If the waste items are segregated properly at
+    				their grassroots level, a major portion of the waste management
+    				cycle is covered. The usage of automation in segregation of waste
+    				items can greatly improve its efficiency and at the same time
+    				reduce the health hazards associated with manual segregation.</p>
+    		</div>
+    			<div class=""col-md-4 "">
+    			<hr>
+    			<br>
+    			<br>
+    			<iframe width=""540"" height=""400"" src=""https://www.youtube.com/embed/dU-jUhHxNQU"" frameborder=""0"" allow=""autoplay; encrypted-media"" allowfullscreen></iframe>
+    		</div>
+    	</div>
+    
+    	<div class=""row"">
+    		<div class=""jumbotron"">
+    		  <h1 id=""hdr"">AUTOMATIC WASTE SEGREGATOR</h1>
+    
+    		</div>
+    	</div>
+    	<br>
+    	<div class=""row"">
+    		<div class=""col-md-5"">
+    			<img src=""{{ url_for('static',filename='styles/dustbin_index.jpg') }}"" width=480px height=320px>
+    
+    		</div>
+    		<div class=""col-md-6 col-md-offset-1"" id=""introduction"">
+    			<hr>
+    			<p>This project provides a solution that can detect, identify and
+    			segregate waste items into biodegradable and non-biodegradable
+    			categories without any human assistance. The Automatic waste
+    			segregator is a centrally partitioned bin. It uses
+    			Image Processing to detect an object that is thrown into it's flap.
+    			Machine Learning is used to identify the category of the waste
+    			item. The waste item is then deposited into its respective
+    			compartment by the rotating the flap. </p> 
+    			
+    		</div>
+    			
+    	</div>
+    	<br>
+    	<div class=""row"">
+    		<div class=""col-md-6 "" id=""introduction"">
+    			<hr>
+    			<p>The project uses Machine Learning to identify the waste items. A brief introduction about the Machine Learning technology is provided in the video below.<br><br>
+    			The system is monitored in real-time using a web server built using Flask. Navigate to <strong>Dashboard</strong> section to view the operation of the system in real-time.
+    			</p>
+    			
+    		</div>
+    		<div class=""col-md-6"">
+    			<hr>
+    			<iframe width=""550"" height=""245"" src=""https://www.youtube.com/embed/yofjFQddwHE"" frameborder=""0"" allow=""autoplay; encrypted-media"" allowfullscreen></iframe> 
+    			
+    		</div>
+    	</div>
+    	<hr>
+    	
+    </div>
+    
+    
+    
+    
+    
+    {% endblock %}
+
+here is the traceback
+
+    [2023-03-09 22:14:02,239] ERROR in app: Exception on / [GET]
+    Traceback (most recent call last):
+      File ""/home/pi/.local/lib/python3.7/site-packages/flask/app.py"", line 2528, in wsgi_app
+        response = self.full_dispatch_request()
+      File ""/home/pi/.local/lib/python3.7/site-packages/flask/app.py"", line 1825, in full_dispatch_request
+        rv = self.handle_user_exception(e)
+      File ""/home/pi/.local/lib/python3.7/site-packages/flask/app.py"", line 1823, in full_dispatch_request
+        rv = self.dispatch_request()
+      File ""/home/pi/.local/lib/python3.7/site-packages/flask/app.py"", line 1799, in dispatch_request
+        return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+      File ""/home/pi/Automatic-Waste-Segregator/Segregator v.2/server/webapp/app/routes.py"", line 52, in index
+        return render_template('index.html',title='Welcome')
+      File ""/home/pi/.local/lib/python3.7/site-packages/flask/templating.py"", line 147, in render_template
+        return _render(app, template, context)
+      File ""/home/pi/.local/lib/python3.7/site-packages/flask/templating.py"", line 130, in _render
+        rv = template.render(context)
+      File ""/home/pi/.local/lib/python3.7/site-packages/jinja2/environment.py"", line 1301, in render
+        self.environment.handle_exception()
+      File ""/home/pi/.local/lib/python3.7/site-packages/jinja2/environment.py"", line 936, in handle_exception
+        raise rewrite_traceback_stack(source=source)
+      File ""/home/pi/Automatic-Waste-Segregator/Segregator v.2/server/webapp/app/templates/index.html"", line 2, in top-level template code
+        {% extends ""base.html"" %}
+      File ""/home/pi/Automatic-Waste-Segregator/Segregator v.2/server/webapp/app/templates/base.html"", line 4, in top-level template code
+        {{ moment.include_jquery() }}
+      File ""/home/pi/.local/lib/python3.7/site-packages/jinja2/utils.py"", line 83, in from_obj
+        if hasattr(obj, ""jinja_pass_arg""):
+    jinja2.exceptions.UndefinedError: 'type object' has no attribute 'include_jquery'",0.0438942
+"I made my own voice assistant, write-up and code in the comments",50,https://v.redd.it/fzw9rrcbikma1,,
+Flask sql alchemy foreign key to non primary key,1,https://www.reddit.com/r/flask/comments/11m849h/flask_sql_alchemy_foreign_key_to_non_primary_key/,I’m trying to reference a non primary key as foreign key but I’m getting the missing index error,0.022374803
+Save file to default browser download folder,5,https://www.reddit.com/r/flask/comments/11m3v5a/save_file_to_default_browser_download_folder/,"This is probably more of an HTML issue than Flask, but thought I'd ask here to start. I have an HTML page with Flask backend. On the page is an input box and a download button. You paste the url of the file you want to download and the download button starts the download. But it saves it in the app directory where the python code is running. I'd like to have the file saved in the browser default downloads folder - any idea how to do that? 
+
+Edited with code block. Using pytube library
+
+    app.route('/', methods=['POST'])
+    def download():
+        link = request.form['link']
+        try:
+            youtubeObject = YouTube(link)
+            youtubeObject = youtubeObject.streams.get_highest_resolution()
+            youtubeObject.download()
+            message = ""Download is completed successfully""
+        except:
+            message = ""An error has occurred""
+        return render_template('index.html', message=message)
+
+&#x200B;",0.026028076
+How to update page when SVG changes,3,https://www.reddit.com/r/flask/comments/11m0kju/how_to_update_page_when_svg_changes/,"Hi, I’ve written a python chess game, it contains a game loop that allows user to play vs an engine. Every iteration an SVG file representing the actual chessboard state is saved to root project folder.
+
+I need a simple GUI that can show the chessboard svg, and updates every time svg changes or is written.
+
+I’ve never worked with python gui, but I think that the simplest way to show an svg is using a browser, so I’ve written a small separate flask app to show the svg.
+
+Problems:
+1) Have i to put svg file into ‘static’ folder to use it into a template?
+2) Python game script writes svg every iteration but flask webpage is not updated. I’ve added svg path to ‘extra_files’ in flask app and noticed that the server is reloading every time the svg changes but I have to manually reload the web page to show the new svg.
+
+Do you know what can I do or if exists another way to obtain this result?",0.020607091
+flask web always shows old index.html template even if i changed it multiple time. It always shows the the very first template i used any solution in details as i am new to flask,5,https://www.reddit.com/r/flask/comments/11lv22l/flask_web_always_shows_old_indexhtml_template/,Title,0.012126249
+Redirect is using HTTP instead of HTTPS,1,https://www.reddit.com/r/flask/comments/11luchr/redirect_is_using_http_instead_of_https/,"My website is using HTTPS. For some reason when I return a redirect response, it goes to HTTP instead of HTTPS.
+
+Here's my code :
+
+`@app.route(""/test_redirect"")`  
+`def test_redirect():`  
+ `return redirect(url_for('clients.index'))`
+
+So when I go to [https://mywebsite.com/test\_redirect](https://mywebsite.com/test_redirect) the response redirects to [http://mywebsite.com/clients](http://mywebsite.com/clients) and I eventually get a ERR\_CONNECTION\_REFUSED error.
+
+It works fine on localhost, but not on the server.
+
+The server is hosted on AWS so there might already be some kind of redirection there ? I don't have access to the AWS configuration so I have no idea how it goes, I'm waiting for my colleagues to have a look.
+
+I tried to setup a redirection in Apache's configuration on the server, but then the browser detects a ""too many redirects"" loop.
+
+My question is : does Flask have anything to do in changing HTTPS to HTTP when using redirect ? Is there a configuration option that I didn't see yet ? The redirect() function does not seem to have a lot more parameters, as it's already returning a 302 code by default...
+
+I'm lost, can you please help me ?
+
+Thanks !",0.014890783
+API authentication using Keycloak,7,https://www.reddit.com/r/flask/comments/11lquuc/api_authentication_using_keycloak/,"I have coded an API in flask and currently, I am handing out API keys to authenticate users. My API is accessed from an Angular frontend that also accesses a different API which handles authentication using Keycloak (an open source OpenID connect identity provider). Are there any extensions that make keycloak integration with Flask simple? I do not want to redirect users to a login site if they are not logged in, just check the keycloak token and otherwise return 401.",0.01847211
+Dynamic Flask app - users add pages,1,https://www.reddit.com/r/flask/comments/11lkrsu/dynamic_flask_app_users_add_pages/,"Hi all! I'm a junior developer, newish to Flask and am currently developing a Flask based tool that ideally allows users to create new pages and add them to the server over time. I'm trying to think through the best way to handle this - would it require restarting the server every time someone adds a page? what is a good way to keep track of the existing routes and display them?",0.015707577
+Free Deployment Sites For Practice,1,https://www.reddit.com/r/flask/comments/11liicz/free_deployment_sites_for_practice/,"Does anyone have any recommendations on free sites for me to practice app deployments, upgrades, etc.? 
+
+I think it’s pythonanywhere that provides fee hosting for small apps, but curious how similar that might be to heroku, AWS, linode (I know these are all very different types of platforms) just trying to get a good taste of what things might be like.
+
+Thanks!",0.010743983
+have you seen a tool like this that can translate json to workflows?,10,https://v.redd.it/wnp0l953cema1,,
+"flask request.base_url just printing 'flask""",1,https://www.reddit.com/r/flask/comments/11l3erw/flask_requestbase_url_just_printing_flask/,"I'm having trouble with Flask docs...but do I need to set this in the config somewhere?
+
+The following code:
+
+    @login_bp.route(""/oath"")
+    def oath():
+        redirect_uri=request.base_url
+
+        return (f'hello {redirect_uri}')
+
+
+
+Gives me:
+
+
+    hello http://flask/oath
+
+
+So far I haven't found a similar problem through Googling. I did try to update my config with this:
+
+
+    SERVER_NAME                                 = 'dev.website.com'
+
+
+but now all my app routes are 404'ing.
+
+
+My logger shows the error:
+
+    flask/app.py:1781: UserWarning: Current server name 'flask' doesn't match configured server name 'dev.website.com'
+  return self.url_map.bind_to_environ(
+
+
+when I set
+
+    SERVER_NAME                                 = 'flask'
+
+
+I can render my pages. But that's useless!
+
+
+
+Am I missing something obvious here?",0.024731753
+Need help conditionally skipping form validation (using WTForms),3,https://www.reddit.com/r/flask/comments/11l2887/need_help_conditionally_skipping_form_validation/," Hello. Thanks for any help. I have a form similar to this example (NOTE: I'm using WTForms)
+
+    class MyForm(FlaskForm)   
+      is_edit_mode = HiddenField(default=False)   
+      field_a = StringField(validators=[DataRequired()]   
+      field_b = StringField(validators=[DataRequired()]   
+      field_c = StringField(validators=[DataRequired()] 
+
+If is\_edit\_mode is true, I want to skip validation on field\_a and b because they will be set to disabled=True in the HTML.",0.04785245
+Where can I get socket.io.js client library to serve locally (without needing Internet connection),1,/r/webdev/comments/11kt68u/where_can_i_get_socketiojs_client_library_to/,,
+"How to store json, string, arrays in Postgres database.",2,https://www.reddit.com/r/flask/comments/11kpnn9/how_to_store_json_string_arrays_in_postgres/,"There is a use case where I am storing all data as a string in Postgres db, but that data may contain string, lists, JSON objects and nested JSON objects.
+How can I store them natively, as it will reduce overhead of parsing that json.
+
+All that data is sent through a api.",0.011246625
+400 Bad Request,1,https://www.reddit.com/r/flask/comments/11kn7ef/400_bad_request/,"Hello, I've been trying to learn flask from a tutorial to make a url-shortener. I've gotten stuck at trying to upload a file to the website. I keep getting a 400 Bad Request error.
+
+Here's my [app.py](https://app.py):
+
+`from flask import Flask, render_template, request, redirect, url_for, flash`
+
+`import json`
+
+`import os.path`
+
+`from werkzeug.utils import secure_filename #makes sure if file is safe`
+
+&#x200B;
+
+`app = Flask(__name__)`
+
+`app.secret_key = 'huef3i04q7gh7rhe'`
+
+&#x200B;
+
+`u/app.route('/')`
+
+`def home():`
+
+`return render_template('home.html')`
+
+
+
+`u/app.route('/your-url', methods=['GET', 'POST']) # like a new directory in the website`
+
+`def your_url():`
+
+`if request.method == 'POST':`
+
+`urls = {}`
+
+
+
+`if os.path.exists('urls.json'):          # if urls.json exists`
+
+`with open('urls.json') as urls_file: # open urls.json as urls_file`
+
+`urls = json.load(urls_file)      # assigns urls as whats in .json`
+
+
+
+`if request.form['code'] in urls.keys(): #returns flash statement below if code given already exists`
+
+`flash('That shotrt name has already been taken, select another name.')`
+
+`return redirect(url_for('home'))`
+
+
+
+`if 'url' in request.form.keys():`
+
+`urls[request.form['code']] = {'url':request.form['url']}`
+
+`else:`
+
+`f = request.files['file']`
+
+`full_name = request.form['code'] + secure_filename(f.filename)`
+
+[`f.save`](https://f.save)`('/home/munoza204/url-shortener' + full_name)`
+
+`urls[request.form['code']] = {'file':full_name}`
+
+&#x200B;
+
+
+
+`urls[request.form['code']] = {'url':request.form['url']}`
+
+`with open('urls.json','w') as url_file:`
+
+`json.dump(urls, url_file)`
+
+`return render_template('your_url.html', code=request.form['code'])`
+
+`else:`
+
+`return redirect(url_for('home'))`
+
+&#x200B;
+
+And here's my home.html:
+
+`<h1>URL Shortener</h1>`
+
+&#x200B;
+
+`{% for message in get_flashed_messages() %}`
+
+`<h2>{{ message }}</h2>`
+
+`{% endfor %}`
+
+&#x200B;
+
+`<form action=""your-url"" method='post'>`
+
+  `<label for=""url"">Website URL</label>`
+
+`<input type=""url"" name=""url"" value="""" required>`
+
+`<br>`
+
+  `<label for=""code"">Short name</label>`
+
+`<input type=""text"" name=""code"" value="""" required>`
+
+`<br>`
+
+`<input type=""submit"" value=""Shorten"">`
+
+`</form>`
+
+&#x200B;
+
+`<form action=""your-url"" method=""post"" enctypr=""multipart/form-data"">`
+
+  `<label for=""file"">File</label>`
+
+`<input type=""file"" name=""file"" value="""" required>`
+
+`<br>`
+
+  `<label for=""code"">Short name</label>`
+
+`<input type=""text"" name=""code"" value="""" required>`
+
+`<br>`
+
+`<input type=""submit"" value=""Shorten"">`
+
+`</form>`
+
+Thanks for any help!",0.02048268
+Any resources available for flask-socketio when the socket connection is not using the home path?,2,https://www.reddit.com/r/flask/comments/11kkuqq/any_resources_available_for_flasksocketio_when/,"I'm trying to build a web app.
+
+I want to do something like:
+
+[www.mywebsite.com](https://www.mywebsite.com)/ - core functionality
+
+[www.mywebsite.com](https://www.mywebsite.com)/my\_chat\_rooms - the place where you select a room, and first start declaring session ID, username, etc.
+
+  
+[www.mywebsite.com](https://www.mywebsite.com)/my\_room - the room joined.
+
+&#x200B;
+
+All the tutorials I see work on the basis that '/' is where everything begins regarding the socket connections. Which makes the tutorials more simple to follow and build, but don't seem as realistic.
+
+I'm really struggling to get the socket connections working in the right way.
+
+If anyone has any flask-socketio resource recommendations I would greatly appreciate them",0.04760506
+Deploying an SQLite Flask Web App,13,https://www.reddit.com/r/flask/comments/11keoka/deploying_an_sqlite_flask_web_app/,"I have a flask app using SQLite3 as well as Flask-SQLAlchemy to interact with that database. I need a hosting platform to host the site besides Heroku, as I know they reset their servers everyday or so. I have looked at other posts on this Reddit, but nothing has helped me. All help is appreciated, thanks!",0.011435116
+db.create_all(),3,https://www.reddit.com/r/flask/comments/11k3wm7/dbcreate_all/,"Im using flask 2.2.3 , after I imported db from app using python , I ran the command db.create\_all()
+
+and this is supposed to create a database in the main folder. but it is not. this is my code.
+
+ {
+
+from flask import Flask,render\_template  
+from flask\_sqlalchemy import SQLAlchemy  
+
+
+app = Flask(\_\_name\_\_)  
+app.config\['SQLALCHEMY\_DATABASE\_URI'\] = ""sqlite:///project.db""  
+db= SQLAlchemy(app)  
+
+
+class todo(db.Model):  
+ id = db.Column(db.Integer, primary\_key=True)  
+ title = db.Column(db.String(100), nullable=False)  
+ complete = db.Column(db.Boolean, nullable=False)  
+
+
+app.route(""/"") #i used decorator symbol ""at""  
+def index():  
+ return render\_template('index.html')
+
+&#x200B;
+
+}. getting an error saying app is used out of context. but i saw youtubers doing the same and getting a database to work with.
+
+if i used with app.app\_context() line, the database is getting created in an instance folder.
+
+is this new a thing in flask 2.2.3 . the youtuber used flask 2.1.x.",0.028856417
+TypeError: 'ImmutableMultiDict' object is not callable,1,https://www.reddit.com/r/flask/comments/11k1qpn/typeerror_immutablemultidict_object_is_not/,"First time using Flask to create a simple app that takes an input from the user and prints a bunch of texts.
+
+Here's the code for the HTML file `getinput.html`:
+
+    <html> 
+    <body>  
+          <form action = ""http://localhost:5000/login"" method = ""POST"">  
+             <table>  
+             <tr><td>Name</td>  
+             <td><input type =""text"" name =""prompt""></td></tr>  
+             <tr><td><input type = ""submit""></td></tr>  
+             </table>  
+          </form>  
+       </body>  
+    </html>  
+
+And this is the code for the `chatoverflowapp.py` file:
+
+    from revChatGPT.V1 import Chatbot
+    from dotenv import load_dotenv
+    import os
+    from flask import *
+      
+    app = Flask(__name__) #creating the Flask class object   
+     
+    @/app.route('/login',methods=['GET', 'POST']) 
+    def login():  
+        load_dotenv()
+    
+        OPENAI_EMAIL=os.getenv(""OPENAI_EMAIL"")
+        OPENAI_PASSWORD=os.getenv(""OPENAI_PASSWORD"")
+    
+        chatbot = Chatbot(config={
+            ""email"": OPENAI_EMAIL,
+            ""password"": OPENAI_PASSWORD
+        })
+    
+        prompt = request.form(""prompt"")
+        response = """"
+    
+        for data in chatbot.ask(
+            prompt
+        ):
+            response = data[""message""]
+    
+        return render_template('getinput.html', prompt=prompt)
+      
+    if __name__ =='__main__':  
+        app.run(debug = True)
+
+When I run this, it gives a `TypeError: 'ImmutableMultiDict' object is not callable` error. I am at my wits end, tried a number of solutions that had worked for others from StackOverflow. But it's not working for me. Any help would be appreciated!",0.02308189
