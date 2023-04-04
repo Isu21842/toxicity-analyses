@@ -1,4 +1,4 @@
-# Quick setup of Toxicity Analyses
+# Template for analyzing toxicity
 
 Quickly clone repo:
 
