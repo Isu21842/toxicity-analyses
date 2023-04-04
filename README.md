@@ -1,6 +1,6 @@
 # Quick setup of Toxicity Analyses
 
-scrape reddit then analyze
+Quick clone repo:
 
 ```
 git clone git@github.com:Isu21842/toxicity-analyses.git
