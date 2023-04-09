@@ -1,4 +1,4 @@
-# Template for analyzing toxicity
+# my setup for PRAW and PerspectiveAPI
 
 Quickly clone repo:
 
