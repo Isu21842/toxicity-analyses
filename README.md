@@ -1,3 +1,1 @@
-# my setup for PRAW and PerspectiveAPI
-
-~committing from vscode
+# setup for PRAW and PerspectiveAPI
